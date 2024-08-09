@@ -12085,4 +12085,14 @@ section .search-section .search-form .form-control::placeholder {
   line-height: 28px;
 }
 
+.cards-list {
+  padding: 40px 0px 80px;
+}
+.cards-list .card {
+  height: 210px;
+}
+.cards-list .card .card-img-top {
+  width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */

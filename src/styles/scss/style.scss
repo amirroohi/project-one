@@ -197,5 +197,13 @@ section{
         }
     }
 }
-
+.cards-list{
+    padding: 40px 0px 80px;
+    .card{
+        height: 210px;
+        .card-img-top{
+            width: 100%;
+        }
+    }
+}
 
