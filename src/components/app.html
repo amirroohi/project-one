@@ -1,3 +1,95 @@
+<header class="header container-lg">
+  <nav class="navbar">
+    <div class="nav__menu">
+      <button class="hamburger-menu">
+        <svg class="icon">
+          <use xlink:href="/src/assets/icons/sprite.svg#menu-1"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="nav__logo">
+      <svg class="icon">
+        <use xlink:href="/src/assets/icons/sprite.svg#Logo"></use>
+      </svg>
+    </div>
+    <div class="nav__list">
+      <ul>
+        <li><a href="">دوره‌های آموزشی</a></li>
+        <li><a href="">وبلاگ</a></li>
+        <li><a href="">مجموعه‌ها</a></li>
+        <li><a href="">رادیوفول‌استک</a></li>
+        <li><a href="">فن‌واژه</a></li>
+      </ul>
+    </div>
+    <button class="nav__login">
+      <svg class="icon">
+        <use xlink:href="/src/assets/icons/sprite.svg#login"></use>
+      </svg>
+      <p class="login-desktop">ورود | ثبت‌نام</p>
+    </button>
+  </nav>
+</header>
+<section class="breadcrumb-section container-lg">
+  <nav
+    style="
+      --bs-breadcrumb-divider: url(
+        &#34;data:image/svg + xml,
+        %3Csvgwidth='16'height='16'viewBox='0 0 24 25'fill='none'xmlns='http://www.w3.org/2000/svg'%3E%3Cgclip-path='url(%23clip0_3_4026)'%3E%3Cpathd='M15 21.1988C14.9015 21.1992 14.8039 21.1799 14.7129 21.1421C14.6219 21.1044 14.5393 21.0489 14.47 20.9788L7.94999 14.4618C7.4407 13.9486 7.15491 13.2549 7.15491 12.5318C7.15491 11.8088 7.4407 11.1151 7.94999 10.6018L14.47 4.07983C14.6122 3.94735 14.8002 3.87523 14.9945 3.87866C15.1888 3.88209 15.3742 3.9608 15.5116 4.09821C15.649 4.23562 15.7277 4.42101 15.7312 4.61531C15.7346 4.80961 15.6625 4.99766 15.53 5.13983L9.00999 11.6618C8.77941 11.8927 8.64989 12.2056 8.64989 12.5318C8.64989 12.8581 8.77941 13.171 9.00999 13.4018L15.53 19.9218C15.6695 20.063 15.7477 20.2534 15.7477 20.4518C15.7477 20.6503 15.6695 20.8407 15.53 20.9818C15.3869 21.1182 15.1977 21.1957 15 21.1988Z'fill='%230B032D'/%3E%3C/g%3E%3Cdefs%3E%3CclipPathid='clip0_3_4026'%3E%3Crectwidth='24'height='24'fill='white'transform='translate(0 0.528809)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E&#34;
+      );
+    "
+    aria-label="breadcrumb"
+  >
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">خانه</a></li>
+      <li class="breadcrumb-item active" aria-current="page">وبلاگ</li>
+    </ol>
+  </nav>
+</section>
+<section class="container-lg">
+  <div class="search-section border-bottom border-2 row justify-content-center">
+    <header class="search-header">وبلاگ، مقاله‌های تخصصی</header>
+    <div class="search-form">
+      <form class="d-flex">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="در بین مقاله‌های تخصصی جستجو کن..."
+          aria-label="Search"
+        />
+        <button class="btn search-btn" type="submit"></button>
+      </form>
+      <div class="d-flex form-category gap-3">
+        <select
+          class="form-select border-0 rtl"
+          aria-label="Default select example"
+        >
+          <option selected>دسته‌بندی</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <select
+          class="form-select border-0"
+          aria-label="Default select example"
+        >
+          <option selected>نویسنده</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <select
+          class="form-select border-0"
+          aria-label="Default select example"
+        >
+          <option selected>مرتب‌سازی</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="container-lg">
   <article class="cards-list row row-cols-1 row-cols-lg-3 gap-2">
     <div class="card col rounded-4">
@@ -500,3 +592,43 @@
     </div>
   </article>
 </section>
+<footer class="container-lg footer-container">
+  <div class="footer row">
+    <div class="footer__logo col-12 col-lg-6">
+      <svg class="icon">
+        <use xlink:href="/src/assets/icons/sprite.svg#Logo"></use>
+      </svg>
+      <p>
+        ما در سکان‌آکادمی معتقدیم همه‌ی انسان‌ها حق دارند، به آموزش باکیفیت و
+        کم‌هزینه دسترسی آسان داشته باشند و همه‌ی افراد می‌توانند با آموزش درست،
+        زندگی فردی و اجتماعی خود را بهتر کنند. با توجه به تخصص تیم ما در حوزه‌ی
+        IT و نیاز روزافزون بازار کار به متخصصان این حوزه، تولید و عرضه‌ی محتوای
+        مهارت‌محور و تخصصی را در حوزه‌ی IT جدی‌تر دنبال کردیم. در این راه از
+        ابتدای انتخاب مسیر متناسب با توانایی و امکانات دانشجو تا یادگیری، تمرین،
+        کسب مهارت تخصصی و عمومی، و در نهایت معرفی به بازار کار همراه او هستیم...
+      </p>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="footer__links row row-cols-2">
+        <div class="service-link col-6 gap-4">
+          <h3>خدمات سکان آکادمی</h3>
+          <p><a href="">دوره‌های آموزشی</a></p>
+          <p><a href="">وبلاگ</a></p>
+          <p><a href="">سکان پلاس</a></p>
+          <p><a href="">رادیوفول‌استک</a></p>
+          <p><a href="">فن‌واژه</a></p>
+        </div>
+        <div class="access-link col-6 gap-4">
+          <h3>دسترسی سریع</h3>
+          <p><a href="">درباره ما</a></p>
+          <p><a href="">تماس با ما</a></p>
+          <p><a href="">همکاری با ما</a></p>
+          <p><a href="">شرایط و قوانین</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer__copyright mt-4">
+      کلیه حقوق مادی و معنوی این وب‌سایت متعلق به سکان آکادمی می‌باشد.
+    </div>
+  </div>
+</footer>

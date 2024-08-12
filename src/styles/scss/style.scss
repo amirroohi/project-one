@@ -5,13 +5,6 @@
 
 
 
-// $primary:$grayscale-1;
-$primary: #8874d1;
-$theme-colors: (
-  "primary": $primary
-);
-
-
 
 // mixins
 @mixin font($fontFamily,$fontSize){
@@ -35,19 +28,24 @@ $theme-colors: (
     margin: 0;
     padding: 0;
     list-style: none;
+    transition: all 0.5s ease-in-out;
 }
 body{
-    @include font(IranYekanX,22px)
+    @include font(IranYekanX,22px);
+    color: $secondary2-100;
 }
 
 a{
     text-decoration: none;
-
+    color: $secondary2-100;
 }
 // ---------UI---------
-
+.container-lg{
+    // padding: 0 0px;
+    max-width: 1146px;
+}
 .container-body{
-    max-width: 360px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 16px;
 }
@@ -55,57 +53,137 @@ a{
 
 // navber
 .header{
- .navbar{
-    width: 100%;
-    padding: 20px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(20px);
+    z-index: 100;
+     .navbar{
+        // width: 100%;
+        padding: 20px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    .hamburger-menu{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid $secondary2-100;
-        border-radius: 8px;
-        padding: 7.5px;
-        background-color: $grayscale-0;
-        .icon{
-            width: 20px; 
-            height: 20px;
+        .nav__menu{
+            display: block;
+            .hamburger-menu{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid $secondary2-100;
+                border-radius: 8px;
+                padding: 7.5px;
+                background-color: $grayscale-0;
+                outline: none;
+                .icon{
+                    width: 20px; 
+                    height: 20px;
+                }
+                .sideToggle-menu{
+                    @include font(IranSansXmedium,16px);
+                    position: absolute;
+                    top:77px;
+                    right: -312px;
+                    width: 300px;
+                    background-color: $grayscale-0;
+                    border: 2px solid $grayscale-4;
+                    border-radius: 16px;
+                    line-height: 32px;
+                    ul{
+                        li{
+                            a:hover{
+                                color: $secondary1-100;
+                            }
+                        }
+                    }
+                }
+            }
+            .hamburger-menu:focus{
+                .sideToggle-menu{
+                    right:0px;
+                }
+            }
+        }
+        .nav__logo{
+            .icon{
+                width: 87px; 
+                height: 37px;
+            }
+        }
+        .nav__list{
+            display: none;
+            @include font(IranSansXmedium,14px);
+
+        }
+        .nav__login{
+            background-color: $secondary2-100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid;
+            border-radius: 8px;
+            padding: 7.5px;
+            .icon{
+                width: 20px; 
+                height: 20px;
+                color:$grayscale-0;
+            }
+            .login-desktop{
+                display: none;
+
+            }
         }
     }
-    .nav__logo{
-        .icon{
-            width: 87px; 
-            height: 37px;
-        }
-    }
-    .nav__list{
-        display: none;
-        ul{
-            flex-direction: column;
-            position: absolute;
-        }
-    }
-    .nav__login{
-        background-color: $secondary2-100;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid;
-        border-radius: 8px;
-        padding: 7.5px;
-        .icon{
-            width: 20px; 
-            height: 20px;
-            color:$grayscale-0;
-        }
-    }
- }
 }
-section{
+@media (min-width:576px){
+    .header{
+        .navbar{
+            .nav__menu{
+                display: none;
+            }  
+            .nav__list{
+                display: block;
+                width: 476px;
+                ul{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0;
+                    margin: 0;
+                    li{
+                        a{
+                            color: $secondary2-100;
+                        }
+                        a:active{
+                            color: $secondary1-100;
+                        }
+                        a:hover{
+                            color: $secondary1-100;
+                        }
+                    }
+                }
+            }
+            .nav__login{
+                border: none;
+                color: $grayscale-0;
+                @include font(IranSansXmedium,14px);
+                .login-desktop{
+                    display: block;
+                    font-weight: 500;
+                    margin: 0 6px 0 0;
+
+                }
+            }
+        }
+    }
+}
+// breadcrumb
+.breadcrumb-section{
+    // position: relative;
+    // top: 77px;
     .breadcrumb{
+        @include font(IranSansXmedium,14px);
+        margin-bottom: 0;
         width: 100%;
         line-height: 28px;
         padding: 20px 0px 0px;
@@ -124,14 +202,14 @@ section{
     }
 
 }
-
+// search-section
 section{
     .search-section{
-        @include font(IranSansX,22px);
         font-weight: 500;
         padding: 40px 0px;
         margin: 0 4px;
         border-color: $grayscale-2;
+        @include font(IranSansX,22px);
         // height: 320px;
         .search-header{
             @include font(IranYekanX,22px);
@@ -152,6 +230,8 @@ section{
             margin-right: 8px;
         }
         .search-form{
+            max-width: 560px;
+            padding: 0;
             .search-btn{
                 background-color: $secondary2-100;
                 border-radius: 8px;
@@ -168,19 +248,31 @@ section{
             //         height: 25px;
             // }
             }
-            .form-select{
-                height: 44px;
-                border-radius: 8px;
-                background-position: left .75rem center;
-                background-color: $grayscale-1;
-                color: $grayscale-6;
-                padding-right:12px;
-                margin-top: 24px;
-                @include font(IranSansXregular,14px);
-                line-height: 28px;
-                direction: rtl;
-                option{
+            .form-category{
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                .form-select{
+                    height: 44px;
+                    border-radius: 8px;
+                    background-position: left .75rem center;
+                    background-color: $grayscale-1;
+                    color: $grayscale-6;
+                    padding-right:12px;
+                    margin-top: 24px;
                     @include font(IranSansXregular,14px);
+                    line-height: 28px;
+                    direction: rtl;
+                    option{
+                        width: 100%;
+                        background-color: $grayscale-0;
+                        font-size: 14px;
+                    }
+                }
+            }
+            @media (max-width:576px) {
+                .form-category{
+                    flex-direction: column;
                 }
             }
             .form-control{
@@ -197,13 +289,133 @@ section{
         }
     }
 }
+// ---------body-------
+// cards
 .cards-list{
-    padding: 40px 0px 80px;
+    padding: 20px 0px 80px;
+    margin: 0 auto;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
     .card{
-        height: 210px;
-        .card-img-top{
-            width: 100%;
+        max-width: 368px;
+        max-height: 236px;
+        padding: 0;
+        margin-top: 20px;
+        border-radius: 8px;
+        border: 2px solid $grayscale-2;
+        overflow: hidden;
+        object-fit: cover;
+        .card-body{
+            padding: 16px 18px 20px;
+            line-height: 36px;
+            font-weight: 500;
+            max-width: 368px;
+            max-height: 238px;
+            position: relative;
+            top: -50%;
+            background-color: rgba($color: $grayscale-0, $alpha: 0.8);
+            @include font(IranSansXdemibold,18px);
+            .card-text{
+                display: inline-block;
+                color: $secondary2-100;
+                width: 288px;
+                margin: 0;
+                overflow: hidden;
+                text-overflow:"...";
+                // white-space: nowrap;
+                height: 72px;
+
+            }
+            .course-creater{
+                @include font(IranSansXmedium,14px);
+                margin: 16px 0;
+                .profile-creater{
+                    img{
+                        width: 21px;
+                        height: 21px;
+                    }
+                }
+                .name-creater{
+                    margin-right: 5px;
+                }
+            }
+            .course-details{
+                @include font(IranSansXlight,14px);
+                font-weight: 500;
+                width: 100%;
+                height: 40px;
+                .course-spec{
+                    display: flex;
+                    justify-content: space-between;
+                    div{
+                        display: flex;
+                        align-items: center;
+                        p{
+                            margin: 0 8px 0 0;
+                        }
+                    }
+                    .icon{
+                        height: 20px;
+                        width: 20px;
+                    }
+                }
+                .bookmark{
+                    svg{
+                        height: 24px;
+                        width: 24px;
+                    }
+                }
+            }
+        }
+    }
+    .card:hover{
+        .card-body{
+            top: -100%;
+        }
+    }
+    
+}
+
+// ---------footer--------
+.footer-container{
+    max-width: 100%;
+    border-bottom: 8px solid $secondary2-100;
+    background-color: $grayscale-1;
+    .row{
+        justify-content: center;
+    }
+        .footer{
+            padding: 48px 0;
+            max-width: 1136px;
+            margin: 0 auto;
+        @include font(IranSansXregular,14px);
+        .footer__logo{
+            svg{
+                width: 87px;
+                height: 37px;
+            }
+            p{
+                margin-top: 24px;
+                line-height: 28px;
+                font-weight: 500;
+            }
+        }
+        .footer__links{
+            div{
+                width: 176px;
+            }
+            h3{
+                @include font(IranSansXregular,16px);
+                font-weight: 700;
+                line-height: 32px;
+            }
+        }
+        .footer__copyright{
+            text-align: center;
+            @include font(IranSansXregular,14px);
+            font-weight: 700;
+            line-height: 28px;
         }
     }
 }
-

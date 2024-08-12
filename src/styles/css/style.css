@@ -11929,31 +11929,46 @@ textarea.form-control-lg {
   margin: 0;
   padding: 0;
   list-style: none;
+  transition: all 0.5s ease-in-out;
 }
 
 body {
   font-family: IranYekanX;
   font-size: 22px;
+  color: #0B032D;
 }
 
 a {
   text-decoration: none;
+  color: #0B032D;
+}
+
+.container-lg {
+  max-width: 1146px;
 }
 
 .container-body {
-  max-width: 360px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 16px;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(20px);
+  z-index: 100;
+}
 .header .navbar {
-  width: 100%;
   padding: 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header .navbar .hamburger-menu {
+.header .navbar .nav__menu {
+  display: block;
+}
+.header .navbar .nav__menu .hamburger-menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11961,10 +11976,29 @@ a {
   border-radius: 8px;
   padding: 7.5px;
   background-color: #FFFFFF;
+  outline: none;
 }
-.header .navbar .hamburger-menu .icon {
+.header .navbar .nav__menu .hamburger-menu .icon {
   width: 20px;
   height: 20px;
+}
+.header .navbar .nav__menu .hamburger-menu .sideToggle-menu {
+  font-family: IranSansXmedium;
+  font-size: 16px;
+  position: absolute;
+  top: 77px;
+  right: -312px;
+  width: 300px;
+  background-color: #FFFFFF;
+  border: 2px solid #9D9D9D;
+  border-radius: 16px;
+  line-height: 32px;
+}
+.header .navbar .nav__menu .hamburger-menu .sideToggle-menu ul li a:hover {
+  color: #24099A;
+}
+.header .navbar .nav__menu .hamburger-menu:focus .sideToggle-menu {
+  right: 0px;
 }
 .header .navbar .nav__logo .icon {
   width: 87px;
@@ -11972,10 +12006,8 @@ a {
 }
 .header .navbar .nav__list {
   display: none;
-}
-.header .navbar .nav__list ul {
-  flex-direction: column;
-  position: absolute;
+  font-family: IranSansXmedium;
+  font-size: 14px;
 }
 .header .navbar .nav__login {
   background-color: #0B032D;
@@ -11991,8 +12023,50 @@ a {
   height: 20px;
   color: #FFFFFF;
 }
+.header .navbar .nav__login .login-desktop {
+  display: none;
+}
 
-section .breadcrumb {
+@media (min-width: 576px) {
+  .header .navbar .nav__menu {
+    display: none;
+  }
+  .header .navbar .nav__list {
+    display: block;
+    width: 476px;
+  }
+  .header .navbar .nav__list ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+  }
+  .header .navbar .nav__list ul li a {
+    color: #0B032D;
+  }
+  .header .navbar .nav__list ul li a:active {
+    color: #24099A;
+  }
+  .header .navbar .nav__list ul li a:hover {
+    color: #24099A;
+  }
+  .header .navbar .nav__login {
+    border: none;
+    color: #FFFFFF;
+    font-family: IranSansXmedium;
+    font-size: 14px;
+  }
+  .header .navbar .nav__login .login-desktop {
+    display: block;
+    font-weight: 500;
+    margin: 0 6px 0 0;
+  }
+}
+.breadcrumb-section .breadcrumb {
+  font-family: IranSansXmedium;
+  font-size: 14px;
+  margin-bottom: 0;
   width: 100%;
   line-height: 28px;
   padding: 20px 0px 0px;
@@ -12000,20 +12074,20 @@ section .breadcrumb {
   justify-content: start;
   align-items: center;
 }
-section .breadcrumb .breadcrumb-item a {
+.breadcrumb-section .breadcrumb .breadcrumb-item a {
   color: #0B032D;
 }
-section .breadcrumb .active {
+.breadcrumb-section .breadcrumb .active {
   color: #777777;
 }
 
 section .search-section {
-  font-family: IranSansX;
-  font-size: 22px;
   font-weight: 500;
   padding: 40px 0px;
   margin: 0 4px;
   border-color: #E6E6E6;
+  font-family: IranSansX;
+  font-size: 22px;
 }
 section .search-section .search-header {
   font-family: IranYekanX;
@@ -12043,6 +12117,10 @@ section .search-section .search-header::after {
   height: 4px;
   margin-right: 8px;
 }
+section .search-section .search-form {
+  max-width: 560px;
+  padding: 0;
+}
 section .search-section .search-form .search-btn {
   background-color: #0B032D;
   border-radius: 8px;
@@ -12055,7 +12133,12 @@ section .search-section .search-form .search-btn {
   background-repeat: no-repeat;
   background-position: center;
 }
-section .search-section .search-form .form-select {
+section .search-section .search-form .form-category {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+section .search-section .search-form .form-category .form-select {
   height: 44px;
   border-radius: 8px;
   background-position: left 0.75rem center;
@@ -12068,9 +12151,15 @@ section .search-section .search-form .form-select {
   line-height: 28px;
   direction: rtl;
 }
-section .search-section .search-form .form-select option {
-  font-family: IranSansXregular;
+section .search-section .search-form .form-category .form-select option {
+  width: 100%;
+  background-color: #FFFFFF;
   font-size: 14px;
+}
+@media (max-width: 576px) {
+  section .search-section .search-form .form-category {
+    flex-direction: column;
+  }
 }
 section .search-section .search-form .form-control {
   border: none;
@@ -12086,13 +12175,124 @@ section .search-section .search-form .form-control::placeholder {
 }
 
 .cards-list {
-  padding: 40px 0px 80px;
+  padding: 20px 0px 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .cards-list .card {
-  height: 210px;
+  max-width: 368px;
+  max-height: 236px;
+  padding: 0;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 2px solid #E6E6E6;
+  overflow: hidden;
+  object-fit: cover;
 }
-.cards-list .card .card-img-top {
+.cards-list .card .card-body {
+  padding: 16px 18px 20px;
+  line-height: 36px;
+  font-weight: 500;
+  max-width: 368px;
+  max-height: 238px;
+  position: relative;
+  top: -50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-family: IranSansXdemibold;
+  font-size: 18px;
+}
+.cards-list .card .card-body .card-text {
+  display: inline-block;
+  color: #0B032D;
+  width: 288px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: "...";
+  height: 72px;
+}
+.cards-list .card .card-body .course-creater {
+  font-family: IranSansXmedium;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.cards-list .card .card-body .course-creater .profile-creater img {
+  width: 21px;
+  height: 21px;
+}
+.cards-list .card .card-body .course-creater .name-creater {
+  margin-right: 5px;
+}
+.cards-list .card .card-body .course-details {
+  font-family: IranSansXlight;
+  font-size: 14px;
+  font-weight: 500;
   width: 100%;
+  height: 40px;
+}
+.cards-list .card .card-body .course-details .course-spec {
+  display: flex;
+  justify-content: space-between;
+}
+.cards-list .card .card-body .course-details .course-spec div {
+  display: flex;
+  align-items: center;
+}
+.cards-list .card .card-body .course-details .course-spec div p {
+  margin: 0 8px 0 0;
+}
+.cards-list .card .card-body .course-details .course-spec .icon {
+  height: 20px;
+  width: 20px;
+}
+.cards-list .card .card-body .course-details .bookmark svg {
+  height: 24px;
+  width: 24px;
+}
+.cards-list .card:hover .card-body {
+  top: -100%;
+}
+
+.footer-container {
+  max-width: 100%;
+  border-bottom: 8px solid #0B032D;
+  background-color: #F2F2F2;
+}
+.footer-container .row {
+  justify-content: center;
+}
+.footer-container .footer {
+  padding: 48px 0;
+  max-width: 1136px;
+  margin: 0 auto;
+  font-family: IranSansXregular;
+  font-size: 14px;
+}
+.footer-container .footer .footer__logo svg {
+  width: 87px;
+  height: 37px;
+}
+.footer-container .footer .footer__logo p {
+  margin-top: 24px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.footer-container .footer .footer__links div {
+  width: 176px;
+}
+.footer-container .footer .footer__links h3, .footer-container .footer .footer__links .h3 {
+  font-family: IranSansXregular;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 32px;
+}
+.footer-container .footer .footer__copyright {
+  text-align: center;
+  font-family: IranSansXregular;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 28px;
 }
 
 /*# sourceMappingURL=style.css.map */
